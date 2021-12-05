@@ -40,7 +40,7 @@ func simpleSteering(input []string) {
 		}
 	}
 
-	fmt.Printf("03. Current submarine position: depth: %d, x: %d, tast result: %d\n", currentPosition.y, currentPosition.x, currentPosition.x*currentPosition.y)
+	fmt.Printf("03. Current submarine position: depth: %d, x: %d, task result: %d\n", currentPosition.y, currentPosition.x, currentPosition.x*currentPosition.y)
 }
 
 type advancedPosition struct {
@@ -76,7 +76,7 @@ func advancedSteering(input []string) {
 		}
 	}
 
-	fmt.Printf("04. Current submarine position: depth: %d, x: %d, aim: %d, tast result: %d\n", currentPosition.y, currentPosition.x, currentPosition.aim, currentPosition.x*currentPosition.y)
+	fmt.Printf("04. Current submarine position: depth: %d, x: %d, aim: %d, task result: %d\n", currentPosition.y, currentPosition.x, currentPosition.aim, currentPosition.x*currentPosition.y)
 
 }
 

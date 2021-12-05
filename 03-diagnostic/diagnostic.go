@@ -9,7 +9,7 @@ import (
 	"github.com/bmalcherek/AdventOfCode/utils"
 )
 
-func simpleDiagnostic(input []string) {
+func countOnesOccurences(input []string) []int {
 	onesCount := make([]int, len(input[0]))
 	for _, reading := range input {
 		for i := 0; i < len(reading); i++ {
@@ -18,6 +18,13 @@ func simpleDiagnostic(input []string) {
 			}
 		}
 	}
+
+	return onesCount
+}
+
+func powerReading(input []string) {
+	onesCount := countOnesOccurences(input)
+
 	gammaStr := ""
 	epsilonStr := ""
 	for _, count := range onesCount {
@@ -32,7 +39,18 @@ func simpleDiagnostic(input []string) {
 
 	gamma, _ := strconv.ParseInt(gammaStr, 2, 32)
 	epsilon, _ := strconv.ParseInt(epsilonStr, 2, 32)
-	fmt.Printf("05. Gamma: %d, Epsilon: %d, Power reading: %d\n", gamma, epsilon, gamma*epsilon)
+	fmt.Printf("05. Diagnostics, Gamma: %d, Epsilon: %d, Power reading: %d\n", gamma, epsilon, gamma*epsilon)
+}
+
+func lifeSupportReading(input []string) {
+	oxygenGeneratorRatingStr := oxygenGeneratorRatingFilter(input)
+	co2ScrubberRatingStr := co2ScrubberRatingFilter(input)
+
+	oxygenGeneratorRating, _ := strconv.ParseInt(oxygenGeneratorRatingStr, 2, 32)
+	co2ScrubberRating, _ := strconv.ParseInt(co2ScrubberRatingStr, 2, 32)
+
+	fmt.Printf("06. Diagnostics, Oxygen: %d, CO2: %d, Life Support Rating: %d\n", oxygenGeneratorRating, co2ScrubberRating, oxygenGeneratorRating*co2ScrubberRating)
+
 }
 
 func Run() {
@@ -43,5 +61,6 @@ func Run() {
 	defer file.Close()
 	input := utils.ReadFileToStringArray(file)
 
-	simpleDiagnostic(input)
+	powerReading(input)
+	lifeSupportReading(input)
 }
